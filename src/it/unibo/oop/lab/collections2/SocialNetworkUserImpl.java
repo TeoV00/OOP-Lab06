@@ -3,9 +3,9 @@ package it.unibo.oop.lab.collections2;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.TreeSet;
 
 /**
  * 
@@ -33,8 +33,7 @@ public class SocialNetworkUserImpl<U extends User> extends UserImpl implements S
      * 
      * think of what type of keys and values would best suit the requirements
      */
-    private U user;
-    private Map<U,String> followingUser;
+    private Map<U, String> followingUser;
 
     /*
      * [CONSTRUCTORS]
@@ -80,10 +79,10 @@ public class SocialNetworkUserImpl<U extends User> extends UserImpl implements S
     }
 
     public Collection<U> getFollowedUsersInGroup(final String groupName) {
-        Collection<U> groupUserSet = new TreeSet<>();
+        Collection<U> groupUserSet = new HashSet<>();
         for (Map.Entry<U, String> entryUser : this.followingUser.entrySet() ) {
             if(entryUser.getValue().equals(groupName)) {
-            groupUserSet.add(entryUser.getKey());
+                groupUserSet.add(entryUser.getKey());
             }
         }
         return groupUserSet;
