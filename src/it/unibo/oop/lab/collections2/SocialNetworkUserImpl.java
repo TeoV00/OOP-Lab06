@@ -1,8 +1,11 @@
 package it.unibo.oop.lab.collections2;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.TreeSet;
 
 /**
  * 
@@ -59,6 +62,7 @@ public class SocialNetworkUserImpl<U extends User> extends UserImpl implements S
      */
     public SocialNetworkUserImpl(final String name, final String surname, final String user, final int userAge) {
         super(name, surname, user, userAge);
+        followingUser = new HashMap<>();
     }
 
     /*
@@ -69,16 +73,27 @@ public class SocialNetworkUserImpl<U extends User> extends UserImpl implements S
 
     @Override
     public boolean addFollowedUser(final String circle, final U user) {
+        if (!followingUser.containsKey(user)) {
+            followingUser.put(user, circle);
+            return true;
+        }
         return false;
     }
 
     @Override
     public Collection<U> getFollowedUsersInGroup(final String groupName) {
-        return null;
+        Collection<U> groupUserSet = new TreeSet<>();
+        for (Map.Entry<U, String> entryUser : this.followingUser.entrySet() ) {
+            if(entryUser.getValue().equals(groupName)) {
+            groupUserSet.add(entryUser.getKey());
+            }
+        }
+        return groupUserSet;
     }
 
     @Override
     public List<U> getFollowedUsers() {
+        List<U> followedUserList = new ArrayList<>();
         return null;
     }
 
