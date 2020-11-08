@@ -71,7 +71,6 @@ public class SocialNetworkUserImpl<U extends User> extends UserImpl implements S
      * Implements the methods below
      */
 
-    @Override
     public boolean addFollowedUser(final String circle, final U user) {
         if (!followingUser.containsKey(user)) {
             followingUser.put(user, circle);
@@ -80,7 +79,6 @@ public class SocialNetworkUserImpl<U extends User> extends UserImpl implements S
         return false;
     }
 
-    @Override
     public Collection<U> getFollowedUsersInGroup(final String groupName) {
         Collection<U> groupUserSet = new TreeSet<>();
         for (Map.Entry<U, String> entryUser : this.followingUser.entrySet() ) {
@@ -91,7 +89,6 @@ public class SocialNetworkUserImpl<U extends User> extends UserImpl implements S
         return groupUserSet;
     }
 
-    @Override
     public List<U> getFollowedUsers() {
         List<U> followedUserList = new ArrayList<>();
         for (Map.Entry<U, String> followedUser : this.followingUser.entrySet() ) {
