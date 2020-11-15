@@ -15,7 +15,7 @@ public class NotEnoughBatteryException extends IllegalStateException{
 
     @Override
     public String toString() {
-        return "NotEnoughBatteryException [batteryLevel=" + batteryLevel + "]" + "NOT ENOUGH";
+        return "NotEnoughBatteryException [batteryLevel=" + batteryLevel + "] NOT ENOUGH";
     }
     
     @Override
