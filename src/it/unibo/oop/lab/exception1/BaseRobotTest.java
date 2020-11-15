@@ -55,7 +55,7 @@ public final class BaseRobotTest {
         }
         catch (PositionOutOfBoundException e) {
             assertTrue(e.getMessage().contains("pos(" + RobotEnvironment.WORLD_X_UPPER_LIMIT + ", " + 
-                                                            RobotEnvironment.WORLD_Y_UPPER_LIMIT + ")"));
+                                                        (RobotEnvironment.WORLD_Y_UPPER_LIMIT + 1) + ")"));
         }
         
     }
