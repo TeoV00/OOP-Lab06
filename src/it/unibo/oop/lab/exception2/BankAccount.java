@@ -11,6 +11,7 @@ public interface BankAccount {
      *            id of the user requesting this operation
      * @param amount
      *            amount to be withdrawn
+     * @throws NotEnoughFoundsException 
      */
     void withdraw(int usrID, double amount);
 
